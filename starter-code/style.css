@@ -19,6 +19,11 @@ nav a:hover {
 	background-color: #ee5f3c;
 }
 
+img {
+	max-width: 100px;
+	max-height: 150px;
+}
+
 h1 {
 	color: rgb(2, 132, 130);
 }

@@ -1,60 +1,40 @@
-var cardOne = "queen";
-var cardTwo = "queen";
-var cardThree = "king";
-var cardFour = "king";
-
-// if(cardTwo === cardFour) {
-// 	window.alert("You found a match.");
-// } else {
-// 	window.alert("Sorry, try again.");
-// }
-
-var gameboard = document.getElementById('gameboard');
-
-var card = document.createElement('div');
-card.className = 'card';
-
-var cardText = document.createTextNode("...");
-
-card.appendChild('board');
-
-for (var i = 0; i < gameboard.length; i++) {
-gameboard[i].className('board');
-}
-
-createBoard = function();
-
-for (var i = 0; i < createBoard.length; i++) {
-createBoard[i].insideHTML("...");
-}
-
-createBoard.appendChild('board');
-
-var cards = ['queen','queen', 'king', 'king'];
-
+var cards = ["queen", "queen", "king", "king"];
 var cardsInPlay = [];
 
-for (var i = 0; i < cards.length; i++) {
+var board = document.getElementById('gameboard');
+function createBoard() {
+for (i = 0; i < cards.length; i++) {
+	var cardElement = document.createElement('div');
+	cardElement.className = 'card';
 	cardElement.setAttribute('data-card', cards[i]);
+	cardElement.addEventListener('click', isTwoCards);
+	board.appendChild(cardElement);
+}
 }
 
-function = isTwoCards() {
-	cardsInPlay.push(this.getAttribute('data-card'));
-	if (cardsInPlay.length === 2) {
-		isMatch(cardsInPlay);
-	} else {
-		cardsInPlay = [];
-	}
+function isMatch(cards) {
+if(cards[0] === cards[1]) {
+	window.alert("You found a match.");
+} else {
+	window.alert("Sorry, try again.");
+}
 }
 
-cardElement.addEventListener('click', isTwoCards);
-cardElement.innerHTML = '<img src="../images/queen.jpg" alt="queen"/>';
-
-function = isMatch() {
-cardElement.innerHTML = "";
+function isTwoCards () {
+cardsInPlay.push(this.getAttribute('data-card'));
+	console.log(this.getAttribute('data-card'));
+	if (this.getAttribute('data-card') === 'king') {
+	this.innerHTML = '<img src="../images/knight.png"/>';
+}	else {
+	this.innerHTML = '<img src="../images/queen.jpg"/>';
+}
+if (cardsInPlay.length === 2) {
+	isMatch(cardsInPlay);
+}	else {
+	cardsInPlay = [];
+}
 }
 
-
-
+createBoard();
 
 
